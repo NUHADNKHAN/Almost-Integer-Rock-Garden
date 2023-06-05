@@ -1,65 +1,16 @@
-# Almost-Integer-Rock-Garden-c+11
-#include <bits/stdc++.h>
+ictor is building a Japanese rock garden in his  square courtyard. He overlaid the courtyard with a Cartesian coordinate system so that any point  in the courtyard has coordinates  and . Victor wants to place  stones in the garden according to the following rules:
 
-using namespace std;
+The center of each stone is located at some point , where  and  are integers .
+The coordinates of all twelve stones are pairwise distinct.
+The Euclidean distance from the center of any stone to the origin is not an integer.
+The sum of Euclidean distances between all twelve points and the origin is an almost integer, meaning the absolute difference between this sum and an integer must be .
+Given the values of  and  for the first stone Victor placed in the garden, place the remaining  stones according to the requirements above. For each stone you place, print two space-separated integers on a new line describing the respective  and  coordinates of the stone's location.
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
+Input Format
 
+Two space-separated integers describing the respective values of  and  for the first stone's location.
 
+Output Format
 
-int main()
-{
-    string first_multiple_input_temp;
-    getline(cin, first_multiple_input_temp);
+Print  lines, where each line contains two space-separated integers describing the respective values of  and  for a stone's location.
 
-    vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
-
-    int x = stoi(first_multiple_input[0]);
-
-    int y = stoi(first_multiple_input[1]);
-
-    // Write your code here
-
-    return 0;
-}
-
-string ltrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
-
-    return s;
-}
-
-string rtrim(const string &str) {
-    string s(str);
-
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
-
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
-    }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
-}
